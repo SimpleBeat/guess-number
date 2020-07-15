@@ -4,6 +4,7 @@ let enterPossible = true
 let inputPossible = true
 let won = false
 let randomNumber = 0
+let currentAttempt = 1
 
 function buttonPressed(n) {
     if (inputPossible) {
@@ -25,18 +26,27 @@ function enterPressed() {
     if (enterPossible) {
         inputPossible = false
         enterPossible = false
-        const number = digit10.innerText + digit1.innerText
+        const number = digit10.innerText == 0 ? digit1.innerText : digit10.innerText + digit1.innerText
 
         if (number == randomNumber) {
-            won = true
+            console.log("You won!")
+            setTimeout(() => {
+                startGame()
+            }, 2000)
         } else {
             if (number < randomNumber) {
-                console.log("My number is higher")
+                document.getElementById('attempt'+currentAttempt).innerText = "Attempt "+currentAttempt+": my number is higher than "+number+"!"
             } else {
-                console.log("My number is lower")
+                document.getElementById('attempt'+currentAttempt).innerText = "Attempt "+currentAttempt+": my number is lower than "+number+"!"
             }
+            currentAttempt++
         }
-        console.log(number)
+        if (currentAttempt == 7) {
+            console.log("Sorry, you're out of attempts!")
+            setTimeout(() => {
+                startGame()
+            }, 2000)
+        }
 
         enterPossible = true
         resetPressed()
@@ -45,8 +55,11 @@ function enterPressed() {
 
 function startGame() {
     resetPressed()
+    for (let i=1; i<7; i++) {
+        document.getElementById('attempt'+i).innerText = "|"
+    }
     randomNumber = Math.floor(Math.random() * 100)
-    won = false
+    currentAttempt = 1
     console.log(randomNumber)
 }
 

@@ -9,7 +9,7 @@
 <body>
     <!-- Title -->
         <h1>Guess the Number</h1>
-
+        <div id="prompt">Please, enter your guess using the buttons below and then press ✓</div>
     <!-- Main interface -->
         <div class="interface-container">
             <div id="display">
@@ -17,8 +17,14 @@
                 <span id="d1">0</span>
             </div>
             <div id="feedback">
-                <div id="attempt">Attempt 1</div>
-                <div id="prompt">Please, enter your guess using the buttons below and then press ✓</div>
+                <div id="attempts">
+                    <div id="attempt1">Attempt 1: </div>
+                    <div id="attempt2">Attempt 2: </div>
+                    <div id="attempt3">Attempt 3: </div>
+                    <div id="attempt4">Attempt 4: </div>
+                    <div id="attempt5">Attempt 5: </div>
+                    <div id="attempt6">Attempt 6: </div>
+                </div>
             </div>
             <div id="buttons">
                 <button id="1" onclick="buttonPressed(1)">1</button>
