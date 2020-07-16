@@ -56,9 +56,9 @@ function enterPressed() {
 function startGame() {
     resetPressed()
     for (let i=1; i<7; i++) {
-        document.getElementById('attempt'+i).innerText = "|"
+        document.getElementById('attempt'+i).innerText = "."
     }
-    document.getElementById('won-lost').innerText = "|"
+    document.getElementById('won-lost').innerText = "_"
     randomNumber = Math.floor(Math.random() * 100)
     currentAttempt = 1
     console.log(randomNumber)
